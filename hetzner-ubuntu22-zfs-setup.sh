@@ -453,17 +453,17 @@ determine_kernel_variant
 
 clear
 
-echo "===========remove unused kernels in rescue system========="
-for kver in $(find /lib/modules/* -maxdepth 0 -type d | grep -v "$(uname -r)" | cut -s -d "/" -f 4); do
-  apt purge --yes "linux-headers-$kver"
-  apt purge --yes "linux-image-$kver"
-done
+#echo "===========remove unused kernels in rescue system========="
+#for kver in $(find /lib/modules/* -maxdepth 0 -type d | grep -v "$(uname -r)" | cut -s -d "/" -f 4); do
+#  apt purge --yes "linux-headers-$kver" || true
+#  apt purge --yes "linux-image-$kver" || true
+#done
 
 echo "======= installing zfs on rescue system =========="
   apt-get install --yes software-properties-common
   gpg --keyid-format long --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x871920D1991BC93C
   gpg --export 871920D1991BC93C > /usr/share/keyrings/ubuntu-archive-keyring.gpg
-  apt --only-upgrade -t bullseye-backports install debootstrap
+  apt --only-upgrade install debootstrap
   echo "zfs-dkms zfs-dkms/note-incompatible-licenses note true" | debconf-set-selections
   echo "y" | zfs
   zfs --version
