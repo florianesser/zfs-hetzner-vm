@@ -2,7 +2,7 @@
 
 : <<'end_header_info'
 (c) Andrey Prokopenko job@terem.fr
-fully automatic script to install Ubuntu 20 LTS with ZFS root on Hetzner VPS
+fully automatic script to install Ubuntu 22 LTS with ZFS root on Hetzner VPS
 WARNING: all data on the disk will be destroyed
 How to use: add SSH key to the rescue console, set it OS to linux64, then press "mount rescue and power cycle" button
 Next, connect via SSH to console, and run the script
@@ -104,7 +104,7 @@ function display_intro_banner {
   print_step_info_header
 
   local dialog_message='Hello!
-This script will prepare the ZFS pools, then install and configure minimal Ubuntu 20 LTS with ZFS root on Hetzner hosting VPS instance
+This script will prepare the ZFS pools, then install and configure minimal Ubuntu 22 LTS with ZFS root on Hetzner hosting VPS instance
 The script with minimal changes may be used on any other hosting provider  supporting KVM virtualization and offering Debian-based rescue system.
 In order to stop the procedure, hit Esc twice during dialogs (excluding yes/no ones), or Ctrl+C while any operation is running.
 '
